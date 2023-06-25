@@ -1,16 +1,14 @@
 import React from 'react';
 import { StatusBar, StyleSheet, useColorScheme, View, Button } from 'react-native';
+import { userColorScheme } from '../../components/userColorScheme';
+import BottomIcons from '../../components/bottomIcons';
 
 interface Props {
     navigation: any;
 }
 
 const Library = (props: Props): JSX.Element => {
-    const isDarkMode = useColorScheme() === 'dark';
-    const backgroundStyle = {
-        backgroundColor: isDarkMode ? '#000000' : '#FFFFFF',
-    };
-    const statusBarStyle = isDarkMode ? 'light-content' : 'dark-content';
+    const { backgroundStyle, statusBarStyle } = userColorScheme();
 
     const handleButtonPress = () => {
         props.navigation.navigate('Home');
@@ -24,6 +22,7 @@ const Library = (props: Props): JSX.Element => {
                     <Button title="Go to Home" onPress={handleButtonPress} />
                 </View>
             </View>
+            <BottomIcons navigation={props.navigation} />
         </View>
     );
 };

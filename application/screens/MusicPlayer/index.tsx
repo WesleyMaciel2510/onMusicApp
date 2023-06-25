@@ -7,7 +7,7 @@ interface Props {
     navigation: any;
 }
 
-const PrivacyPolicy = (props: Props): JSX.Element => {
+const MusicPlayer = (props: Props): JSX.Element => {
     const { backgroundStyle, statusBarStyle } = userColorScheme();
 
     const handleButtonPress = () => {
@@ -30,7 +30,7 @@ const PrivacyPolicy = (props: Props): JSX.Element => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'black', // Add default black background color
+        backgroundColor: 'black',
     },
     contentContainer: {
         flex: 1,
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default PrivacyPolicy;
+export default MusicPlayer;

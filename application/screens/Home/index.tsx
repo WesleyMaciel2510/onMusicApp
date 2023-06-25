@@ -1,13 +1,19 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StatusBar, StyleSheet, View, Button, TouchableOpacity } from 'react-native';
 import { userColorScheme } from '../../components/userColorScheme';
+import { useNavigation } from '@react-navigation/native';
+import BottomIcons from '../../components/bottomIcons';
+
+
 
 interface Props {
     navigation: any;
 }
 
 const Home = (props: Props): JSX.Element => {
-    const { backgroundStyle } = userColorScheme();
+    const navigation = useNavigation();
+
+    const { backgroundStyle, statusBarStyle } = userColorScheme();
 
     const handleButtonPress = () => {
         props.navigation.navigate('Library');
@@ -16,36 +22,18 @@ const Home = (props: Props): JSX.Element => {
     return (
         <View style={styles.container}>
             <View style={[styles.backgroundContainer, backgroundStyle]}>
+                <StatusBar barStyle={statusBarStyle} backgroundColor={backgroundStyle.backgroundColor} />
+
                 <View style={styles.contentContainer}>
                     <View style={styles.buttonContainer}>
                         <Button title="Go to Library" onPress={handleButtonPress} />
                     </View>
                 </View>
+                <BottomIcons navigation={props.navigation} />
             </View>
         </View>
     );
 };
-
-const Library = (props: Props): JSX.Element => {
-    const { backgroundStyle } = userColorScheme();
-
-    const handleButtonPress = () => {
-        props.navigation.navigate('Home');
-    };
-
-    return (
-        <View style={styles.container}>
-            <View style={[styles.backgroundContainer, backgroundStyle]}>
-                <View style={styles.contentContainer}>
-                    <View style={styles.buttonContainer}>
-                        <Button title="Go to Home" onPress={handleButtonPress} />
-                    </View>
-                </View>
-            </View>
-        </View>
-    );
-};
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
