@@ -2,9 +2,12 @@ import React from 'react';
 import { Platform, PermissionsAndroid } from 'react-native';
 import { PERMISSIONS, request } from 'react-native-permissions';
 
-export async function requestAudioFilePermission() {
+export async function requestAudioFilePermission(setAccessToAudio:
+    { (value: React.SetStateAction<boolean>): void; (arg0: boolean): void; }) {
     try {
+
         if (Platform.OS === 'android') {
+            console.log('Going to request permission.');
             const granted = await PermissionsAndroid.request(
                 PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
                 {
@@ -15,6 +18,7 @@ export async function requestAudioFilePermission() {
             );
             if (granted === PermissionsAndroid.RESULTS.GRANTED) {
                 console.log('Audio file permission granted.');
+                setAccessToAudio(true);
             } else {
                 console.log('Audio file permission denied.');
             }

@@ -1,13 +1,16 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { StatusBar, StyleSheet, useColorScheme, View, Button } from 'react-native';
 import { userColorScheme } from '../../components/userColorScheme';
 import BottomIcons from '../../components/bottomIcons';
+import { useInit, useSharedState } from './logic';
 
 interface Props {
     navigation: any;
 }
 
 const Search = (props: Props): JSX.Element => {
+    /* const { } = useSharedState(); */
     const { backgroundStyle, statusBarStyle } = userColorScheme();
 
     const handleButtonPress = () => {

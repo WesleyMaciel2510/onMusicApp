@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -16,23 +17,23 @@ export default function BottomIcons(props: Props) {
         <View style={styles.container}>
             <TouchableOpacity style={styles.iconContainer}
                 onPress={() => props.navigation.navigate('Home')}>
-                <Icon name="tired" size={30} color="white" />
+                <Icon name="home" size={30} color="white" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.iconContainer}
                 onPress={() => props.navigation.navigate('Search')}>
-                <Icon name="adn" size={30} color="white" />
+                <Icon name="search" size={30} color="white" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.iconContainer}
                 onPress={() => props.navigation.navigate('Library')}>
-                <Icon name="bacon" size={30} color="white" />
+                <Icon name="folder-open" size={30} color="white" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.iconContainer}
                 onPress={() => props.navigation.navigate('PrivacyPolicy')}>
-                <Icon name="tired" size={30} color="white" />
+                <Icon name="user" size={30} color="white" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.iconContainer}
                 onPress={() => props.navigation.navigate('MusicPlayer')}>
-                <Icon name="tired" size={30} color="white" />
+                <Icon name="headphones" size={30} color="white" />
             </TouchableOpacity>
         </View>
     );

@@ -1,13 +1,22 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import { StatusBar, StyleSheet, useColorScheme, View, Button } from 'react-native';
+import {
+  StatusBar,
+  StyleSheet,
+  useColorScheme,
+  View,
+  Button,
+} from 'react-native';
 import { userColorScheme } from '../../components/userColorScheme';
 import BottomIcons from '../../components/bottomIcons';
+import { useInit, useSharedState } from './logic';
 
 interface Props {
     navigation: any;
 }
 
 const Library = (props: Props): JSX.Element => {
+    /*  const { } = useSharedState(); */
     const { backgroundStyle, statusBarStyle } = userColorScheme();
 
     const handleButtonPress = () => {
@@ -15,15 +24,18 @@ const Library = (props: Props): JSX.Element => {
     };
 
     return (
-        <View style={[styles.container, backgroundStyle]}>
-            <StatusBar barStyle={statusBarStyle} backgroundColor={backgroundStyle.backgroundColor} />
-            <View style={[styles.contentContainer, backgroundStyle]}>
-                <View style={styles.buttonContainer}>
-                    <Button title="Go to Home" onPress={handleButtonPress} />
-                </View>
-            </View>
-            <BottomIcons navigation={props.navigation} />
+      <View style={[styles.container, backgroundStyle]}>
+        <StatusBar
+          barStyle={statusBarStyle}
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
+        <View style={[styles.contentContainer, backgroundStyle]}>
+          <View style={styles.buttonContainer}>
+            <Button title="Go to Home" onPress={handleButtonPress} />
+          </View>
         </View>
+        <BottomIcons navigation={props.navigation} />
+      </View>
     );
 };
 
