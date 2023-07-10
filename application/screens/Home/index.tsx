@@ -13,6 +13,7 @@ import { useNavigation } from '@react-navigation/native';
 import BottomIcons from '../../components/bottomIcons';
 import PlayerBar from '../../components/playerBar';
 import { useInit, useSharedState } from './logic';
+import header from '../../store/reducers/header';
 
 //= ==========================================================================================================
 
@@ -47,8 +48,12 @@ const Home = (props: Props): JSX.Element => {
             </View>
           </View>
           {<PlayerBar title={'MUSICA'} isPlaying={false} onPlayPause={function (): void {
-                    console.log('PAUSOU');
-            } }/>}
+            console.log('PAUSOU');
+          } } handleBack={function (): void {
+            throw new Error('Void Function.');
+          } } handleForward={function (): void {
+            throw new Error('Void Function.');
+          } }/>}
 
           <View style={styles.playerArea}>
             <Text style={styles.title}>MUSICA</Text>
@@ -87,7 +92,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#4d94ff',
     padding: 10,
   },
   title: {
@@ -99,7 +104,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#4287f5',
     paddingVertical: 5,
     paddingHorizontal: 10,
-    borderRadius: 5,
     marginRight: 10,
   },
   buttonText: {
